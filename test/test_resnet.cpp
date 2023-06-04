@@ -52,8 +52,8 @@ kuiper_infer::sftensor PreProcessImage(const cv::Mat& image) {
 
 TEST(test_model, resnet) {
   using namespace kuiper_infer;
-  const std::string& param_path = "tmp/resnet18_batch1.pnnx.param";
-  const std::string& weight_path = "tmp/resnet18_batch1.pnnx.bin";
+  const std::string& param_path = "/home/kg/code/KuiperCourse/tmp/resnet18_batch1.pnnx.param";
+  const std::string& weight_path = "/home/kg/code/KuiperCourse/tmp/resnet18_batch1.pnnx.bin";
   RuntimeGraph graph(param_path, weight_path);
   graph.Build("pnnx_input_0", "pnnx_output_0");
   LOG(INFO) << "Start kuiperInfer inference";
@@ -68,7 +68,7 @@ TEST(test_model, resnet) {
       graph.Forward(inputs, false);
   ASSERT_EQ(outputs.size(), 1);
 
-  const auto &output2 = CSVDataLoader::LoadData("tmp/out.csv");
+  const auto &output2 = CSVDataLoader::LoadData("/home/kg/code/KuiperCourse/tmp/out.csv");
   const auto &output1 = outputs.front()->data().slice(0);
   ASSERT_EQ(output1.size(), output2.size());
   for (uint32_t s = 0; s < output1.size(); ++s) {
@@ -78,7 +78,7 @@ TEST(test_model, resnet) {
 
 TEST(test_model, resnet_classify_demo) {
   using namespace kuiper_infer;
-  std::string path = "./tmp/dog.jpg";
+  std::string path = "/home/kg/code/KuiperCourse/tmp/dog.jpg";
   cv::Mat image = cv::imread(path);
   // 图像预处理
   sftensor input = PreProcessImage(image);
@@ -86,8 +86,8 @@ TEST(test_model, resnet_classify_demo) {
   std::vector<sftensor> inputs;
   inputs.push_back(input);
 
-  const std::string& param_path = "tmp/resnet18_batch1.pnnx.param";
-  const std::string& weight_path = "tmp/resnet18_batch1.pnnx.bin";
+  const std::string& param_path = "/home/kg/code/KuiperCourse/tmp/resnet18_batch1.pnnx.param";
+  const std::string& weight_path = "/home/kg/code/KuiperCourse/tmp/resnet18_batch1.pnnx.bin";
   RuntimeGraph graph(param_path, weight_path);
   graph.Build("pnnx_input_0", "pnnx_output_0");
 

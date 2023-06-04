@@ -1,0 +1,37 @@
+Log file created at: 2023/04/29 15:54:09
+Running on machine: ubuntu
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+I20230429 15:54:09.139451  8481 test_main.cpp:13] Start test...
+I20230429 15:54:09.959411  8481 test_resnet.cpp:59] Start kuiperInfer inference
+I20230429 15:54:14.041536  8481 runtime_ir.cpp:182] Batch Size:1
+I20230429 15:54:14.041685  8481 runtime_ir.cpp:184] Input Rows: 224 Cols: 224 Channels: 3
+I20230429 15:54:14.041702  8481 runtime_ir.cpp:188] Inference starting...
+I20230429 15:54:14.041707  8481 runtime_ir.cpp:189] --------------------------------------------------
+I20230429 15:54:15.701674  8481 runtime_ir.cpp:200] Model Inference End
+I20230429 15:54:15.701843  8481 runtime_ir.cpp:290] Model Running Information, Time Cost:
+I20230429 15:54:15.701895  8481 runtime_ir.cpp:293] OP type: Copy duration: 0.000344219 s
+I20230429 15:54:15.701980  8481 runtime_ir.cpp:293] OP type: nn.AdaptiveAvgPool2d duration: 0.000148319 s
+I20230429 15:54:15.702028  8481 runtime_ir.cpp:293] OP type: nn.Conv2d duration: 1.54107 s
+I20230429 15:54:15.702072  8481 runtime_ir.cpp:293] OP type: nn.Linear duration: 0.000484182 s
+I20230429 15:54:15.702117  8481 runtime_ir.cpp:293] OP type: nn.MaxPool2d duration: 0.0216313 s
+I20230429 15:54:15.702162  8481 runtime_ir.cpp:293] OP type: nn.ReLU duration: 0.0884961 s
+I20230429 15:54:15.702208  8481 runtime_ir.cpp:293] OP type: pnnx.Expression duration: 0.00696387 s
+I20230429 15:54:15.702251  8481 runtime_ir.cpp:293] OP type: torch.flatten duration: 1.556e-05 s
+I20230429 15:54:15.702296  8481 runtime_ir.cpp:297] All time cost: 1.65915 s
+I20230429 15:54:17.505458  8481 runtime_ir.cpp:182] Batch Size:1
+I20230429 15:54:17.505617  8481 runtime_ir.cpp:184] Input Rows: 640 Cols: 640 Channels: 3
+I20230429 15:54:17.505637  8481 runtime_ir.cpp:188] Inference starting...
+I20230429 15:54:17.505642  8481 runtime_ir.cpp:189] --------------------------------------------------
+I20230429 15:54:23.838390  8481 runtime_ir.cpp:200] Model Inference End
+I20230429 15:54:23.838564  8481 runtime_ir.cpp:290] Model Running Information, Time Cost:
+I20230429 15:54:23.838577  8481 runtime_ir.cpp:293] OP type: Copy duration: 0.00125925 s
+I20230429 15:54:23.838614  8481 runtime_ir.cpp:293] OP type: models.yolo.Detect duration: 0.390945 s
+I20230429 15:54:23.838629  8481 runtime_ir.cpp:293] OP type: nn.Conv2d duration: 4.96482 s
+I20230429 15:54:23.838642  8481 runtime_ir.cpp:293] OP type: nn.MaxPool2d duration: 0.0392509 s
+I20230429 15:54:23.838654  8481 runtime_ir.cpp:293] OP type: nn.SiLU duration: 0.905476 s
+I20230429 15:54:23.838666  8481 runtime_ir.cpp:293] OP type: nn.Upsample duration: 0.0044019 s
+I20230429 15:54:23.838678  8481 runtime_ir.cpp:293] OP type: pnnx.Expression duration: 0.0169694 s
+I20230429 15:54:23.838690  8481 runtime_ir.cpp:293] OP type: torch.cat duration: 0.0071362 s
+I20230429 15:54:23.838702  8481 runtime_ir.cpp:297] All time cost: 6.33026 s
+E20230429 15:54:33.978286  8481 load_data.cpp:22] File open failed: tmp/1.csv

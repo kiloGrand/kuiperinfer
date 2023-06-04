@@ -17,9 +17,11 @@ class Tensor<uint8_t> {
   // 待实现
 };
 
+// Tensor类是一个模板类，它支持float类型的张量数据
 template <>
 class Tensor<float> {
  public:
+  // 默认构造函数
   explicit Tensor() = default;
 
   /**
@@ -28,17 +30,17 @@ class Tensor<float> {
    * @param rows 张量的行数
    * @param cols 张量的列数
    */
-  explicit Tensor(uint32_t channels, uint32_t rows, uint32_t cols);
+  explicit Tensor(uint32_t channels, uint32_t rows, uint32_t cols);  // 构造函数
 
   explicit Tensor(const std::vector<uint32_t>& shapes);
 
-  Tensor(const Tensor& tensor);
+  Tensor(const Tensor& tensor);  // 复制构造函数
 
-  Tensor(Tensor&& tensor) noexcept;
+  Tensor(Tensor&& tensor) noexcept;  // 移动构造函数
 
-  Tensor<float>& operator=(Tensor&& tensor) noexcept;
+  Tensor<float>& operator=(Tensor&& tensor) noexcept; // 移动赋值运算符
 
-  Tensor<float>& operator=(const Tensor& tensor);
+  Tensor<float>& operator=(const Tensor& tensor);  // 赋值运算符
 
   /**
    * 返回张量的行数
@@ -231,11 +233,25 @@ class Tensor<float> {
   arma::fcube data_;                  // 张量数据
 };
 
+// 定义别名，ftensor表示float类型的张量, sftensor表示控制权共享的float数据类型的Tensor指针
 using ftensor = Tensor<float>;
 using sftensor = std::shared_ptr<Tensor<float>>;
 
+/**
+ * 张量广播函数，用于广播两个张量使它们具有相同的shape
+ * @param s1 一个要广播的张量指针(其中sftensor是一个强引用)
+ * @param s2 另一个要广播的张量指针
+ * @return 一个tuple，包含广播后的sftensor指针 
+ */
 std::tuple<sftensor, sftensor> TensorBroadcast(const sftensor &s1, const sftensor &s2);
 
+/**
+ * 张量填充函数，将给定的张量进行pad操作
+ * @param tensor 一个要进行pad的Tensor对象指针(其中sfdensor是一个强引用)
+ * @param pads 一个vector用于指定在每个轴上需要扩展的数量。例如，如(2,2,2)扩展为第一个轴、第二个轴和第三个轴各需要两个元素。
+ * @param padding_value 使用何种值进行填充
+ * @return 返回新的被pad后的tensor指针
+ */
 std::shared_ptr<Tensor<float>> TensorPadding(
     const std::shared_ptr<Tensor<float>>& tensor,
     const std::vector<uint32_t>& pads, float padding_value);

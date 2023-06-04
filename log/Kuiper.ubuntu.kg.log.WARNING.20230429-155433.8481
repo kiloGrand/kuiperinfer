@@ -1,0 +1,5 @@
+Log file created at: 2023/04/29 15:54:33
+Running on machine: ubuntu
+Running duration (h:mm:ss): 0:00:00
+Log line format: [IWEF]yyyymmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E20230429 15:54:33.978286  8481 load_data.cpp:22] File open failed: tmp/1.csv

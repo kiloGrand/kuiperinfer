@@ -221,8 +221,8 @@ void YoloDemo(const std::vector<std::string> &image_paths,
 
 TEST(test_net, forward_yolo1) {
   using namespace kuiper_infer;
-  RuntimeGraph graph("tmp/demo/yolov5n_small.pnnx.param",
-                     "tmp/demo/yolov5n_small.pnnx.bin");
+  RuntimeGraph graph("/home/kg/code/KuiperCourse/tmp/demo/yolov5n_small.pnnx.param",
+                     "/home/kg/code/KuiperCourse/tmp/demo/yolov5n_small.pnnx.bin");
 
   graph.Build("pnnx_input_0", "pnnx_output_0");
   const uint32_t batch_size = 4;
@@ -235,7 +235,7 @@ TEST(test_net, forward_yolo1) {
   }
   std::vector<std::shared_ptr<Tensor<float>>> outputs = graph.Forward(inputs, false);
   for (int i = 0; i < batch_size; ++i) {
-    std::string file_path = "tmp/" + std::to_string(i + 1) + ".csv";
+    std::string file_path = "/home/kg/code/KuiperCourse/tmp/" + std::to_string(i + 1) + ".csv";
     const auto &output1 = CSVDataLoader::LoadData(file_path);
     const auto &output2 = outputs.at(i);
 
@@ -250,9 +250,9 @@ TEST(test_net, forward_yolo1) {
 
 TEST(test_model, yolo_demo) {
   const uint32_t batch_size = 1;
-  const std::vector<std::string> image_paths{"./tmp/bus.jpg"};
-  const std::string &param_path = "tmp/yolov5s.pnnx.param";
-  const std::string &bin_path = "tmp/yolov5s.pnnx.bin";
+  const std::vector<std::string> image_paths{"/home/kg/code/KuiperCourse/tmp/bus.jpg"};
+  const std::string &param_path = "/home/kg/code/KuiperCourse/tmp/yolov5s.pnnx.param";
+  const std::string &bin_path = "/home/kg/code/KuiperCourse/tmp/yolov5s.pnnx.bin";
 
   YoloDemo(image_paths, param_path, bin_path, batch_size);
 }
