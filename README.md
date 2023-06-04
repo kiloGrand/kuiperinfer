@@ -94,7 +94,7 @@ sudo apt install libopencv-dev
 
 
 ## 本项目的编译
-本项目是对b站上的课程[KuiperCourse第14次课程](https://www.bilibili.com/video/BV1xs4y1J7t2/)代码的解读，详细分析请看`doc`文件夹下的文件。
+本项目是对b站上的课程[KuiperCourse第14次课程](https://www.bilibili.com/video/BV1xs4y1J7t2/)代码的解读，详细分析请看`tutorials`文件夹下的文件。
 
 ```bash
 git clone https://github.com/zjhellofss/KuiperCourse.git
